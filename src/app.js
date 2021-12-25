@@ -14,7 +14,9 @@ loaders();
 app.use(express.json());
 
 app.get("/api", (req, res) => {
-  res.status(200).send("Welcome to Getir Final Task API by Necmettin Çakıcı")
+  res.status(200).send(`Welcome to Getir Final Task API by Necmettin Çakıcı.
+  You can check github repo for introductions.
+  https://github.com/getir-nodejs-bootcamp/getir-nodejs-bootcamp-graduation-project-necocakici`)
 })
 app.use("/api/records", recordRoutes);
 
