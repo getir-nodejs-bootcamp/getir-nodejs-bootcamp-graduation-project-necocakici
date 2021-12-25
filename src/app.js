@@ -13,17 +13,18 @@ loaders();
 
 app.use(express.json());
 
-app.use("/records", recordRoutes);
+app.get("/api", (req, res) => {
+  res.status(200).send("Welcome to Getir Final Task API by Necmettin Çakıcı")
+})
+app.use("/api/records", recordRoutes);
 
 //! not found
 app.use((req, res, next) => {
-  console.log(req.method)
-  console.log(req.path)
   next(new ApiError(`There is no endpoint like ${req.path} for ${req.method} request.`, 404))
 });
 app.use(errorHandler);
 
 
 app.listen(process.env.APP_PORT, () =>
-  console.log(`Example app listening on port ${process.env.APP_PORT}!`)
+  console.log(`App listening on port ${process.env.APP_PORT}!`)
 );
