@@ -17,7 +17,9 @@ app.use("/records", recordRoutes);
 
 //! not found
 app.use((req, res, next) => {
-  next(new ApiError("There is no path like this.",404))
+  console.log(req.method)
+  console.log(req.path)
+  next(new ApiError(`There is no endpoint like ${req.path} for ${req.method} request.`, 404))
 });
 app.use(errorHandler);
 
