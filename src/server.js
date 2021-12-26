@@ -1,10 +1,15 @@
 const express = require("express");
+const morgan = require('morgan')
+const cors = require('cors')
 const ApiError = require("./errors/ApiError");
 const errorHandler = require("./middlewares/errorHandler");
 const { recordRoutes } = require("./routes");
 
 const createServer = () => {
     const app = express();
+    app.use(cors())
+    morgan.token('body', (req, res) => JSON.stringify(req.body));
+    app.use(morgan(':method :url :status :response-time ms - :res[content-length] :body - :req[content-length]'))
     app.use(express.json());
     app.get("/api", (req, res) => {
         res.status(200).send(`Welcome to Getir Final Task API by Necmettin Çakıcı.
