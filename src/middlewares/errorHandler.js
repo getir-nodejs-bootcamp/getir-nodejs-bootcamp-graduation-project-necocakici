@@ -3,7 +3,7 @@ module.exports = (error, req, res, next) => {
     res.json({
         error: {
             code: error.code || -3,
-            message: error.msg || "Internal Server Error....",
+            msg: error.msg || "Internal Server Error....",
         },
     });
 };
