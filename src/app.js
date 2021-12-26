@@ -30,3 +30,5 @@ app.use(errorHandler);
 app.listen(process.env.APP_PORT, () =>
   console.log(`App listening on port ${process.env.APP_PORT}!`)
 );
+
+module.exports = app
