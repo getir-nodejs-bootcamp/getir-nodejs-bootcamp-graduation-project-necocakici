@@ -10,7 +10,7 @@ async function connectMongoDB() {
       `You're successfully connected to "${connection.connections[0].name}"`
     );
   } catch (err) {
-    console.log(`err`, err);
+    console.log(`MongoDB connection error`, err);
   }
 }
 

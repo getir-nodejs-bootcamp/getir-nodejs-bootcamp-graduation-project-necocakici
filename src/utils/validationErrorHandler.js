@@ -1,5 +1,4 @@
 const validationErrorHandler = (errors) => {
-    console.log('errors :>> ', errors[0].local.limit);
     errors.map(err => {
         const { local } = err;
         switch (err.code) {
@@ -34,7 +33,6 @@ const validationErrorHandler = (errors) => {
                 break;
         }
     });
-    console.log(errors)
     return errors;
 }
 

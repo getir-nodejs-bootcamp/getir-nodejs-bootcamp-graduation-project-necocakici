@@ -1,5 +1,24 @@
-const app = require("./app");
+process.env.DB_HOST = "challengeUser"
+process.env.DB_URL = "WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net"
+process.env.DB_NAME = "getir-case-study"
+process.env.DB_OPTION = "retryWrites=true"
+process.env.APP_PORT = 8080
+
+const { createServer } = require("../../server");
+const mongoose = require('mongoose')
+
 const supertest = require("supertest");
+
+const app = createServer()
+const _ENV = process.env;
+
+beforeAll(async () => {
+    await mongoose.connect(`mongodb+srv://${_ENV.DB_HOST}:${_ENV.DB_URL}/${_ENV.DB_NAME}?${_ENV.DB_OPTION}`)
+})
+
+afterAll(async () => {
+    await mongoose.connection.close()
+})
 
 describe("POST /api/records", () => {
     const body = {
