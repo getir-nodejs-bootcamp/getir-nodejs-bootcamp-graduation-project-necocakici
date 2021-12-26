@@ -1,4 +1,5 @@
 const validationErrorHandler = (errors) => {
+    console.log('errors :>> ', errors[0].local.limit);
     errors.map(err => {
         const { local } = err;
         switch (err.code) {
@@ -11,6 +12,9 @@ const validationErrorHandler = (errors) => {
             case "date.format":
                 err.message = `${local.label} must be formetted like YYYY-MM-DD`;
                 break;
+            case 'date.min':
+                err.message = `${local.label} must be greater than or equal to ${local.limit.key || local.limit}.`
+                break
             case 'number.base':
                 err.message = `${local.label} must be a number.`
                 break
@@ -30,6 +34,7 @@ const validationErrorHandler = (errors) => {
                 break;
         }
     });
+    console.log(errors)
     return errors;
 }
 
