@@ -1,6 +1,7 @@
 const Joi = require("joi");
 const { validationErrorHandler } = require("../utils/validationErrorHandler");
 
+// Creating a Joi object to validate our payload
 const fetchWithDateAndCount = Joi.object({
   startDate: Joi.date().iso().required().error(validationErrorHandler),
   endDate: Joi.date().iso().min(Joi.ref('startDate')).required().error(validationErrorHandler),

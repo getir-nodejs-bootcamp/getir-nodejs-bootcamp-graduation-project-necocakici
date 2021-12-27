@@ -1,11 +1,12 @@
 const ApiError = require("../errors/ApiError");
 const { getRecordsWithCondition } = require("../services/record");
 
+// @desc fetch Records by using the values in the req.body.
 const fetchRecordsWithCondition = async (req, res, next) => {
   const { body } = req;
   try {
+    // Assigning datas to records 
     const records = await getRecordsWithCondition(body);
-    console.log('records.length :>> ', records.length);
     res.status(200).json({
       code: 0,
       msg: "Success",

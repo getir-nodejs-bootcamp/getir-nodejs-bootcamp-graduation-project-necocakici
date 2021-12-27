@@ -5,6 +5,7 @@ const { fetchWithDateAndCount } = require("../validations/record");
 
 const router = express.Router();
 
-router.post("/",validate(fetchWithDateAndCount, "body"), fetchRecordsWithCondition);
+// path -> middleware -> controller
+router.post("/", validate(fetchWithDateAndCount), fetchRecordsWithCondition);
 
 module.exports = router;

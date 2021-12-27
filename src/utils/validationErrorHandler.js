@@ -1,4 +1,5 @@
 const validationErrorHandler = (errors) => {
+    //mapping errors array and creating a string depends on err.code
     errors.map(err => {
         const { local } = err;
         switch (err.code) {

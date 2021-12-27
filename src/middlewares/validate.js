@@ -1,8 +1,10 @@
 const ApiError = require("../errors/ApiError");
 
-const validate = (schema, source) => (req, res, next) => {
-  const { value, error } = schema.validate(req[source]);
+//Validating the schema which provided by arguments
+const validate = (schema) => (req, res, next) => {
+  const { value, error } = schema.validate(req.body);
   if (error) {
+    // Creating an errorMessage(string) from error array
     const errorMessage = error.details
       ?.map((detail) => detail.message)
       .join(",");

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/app.js",
     "test": "jest",
-    "test-dev": "npm test"
+    "test-unit": "jest -- src/tests/unit/errorHandle.test.js",
+    "test-integration": "jest -- src/tests/integration/post.test.js"
   },
   "repository": {
     "type": "git",

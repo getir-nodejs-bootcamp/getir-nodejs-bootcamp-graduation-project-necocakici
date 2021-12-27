@@ -1,4 +1,6 @@
 class ApiError extends Error {
+  // Function that invoked when ApiError class used,
+  //it creates an object instance of that class.
   constructor(message, statusCode, code) {
     super(message);
 
@@ -6,7 +8,7 @@ class ApiError extends Error {
       case 404:
         this.code = -1;
         break;
-        
+
       case 400:
         this.code = -2;
         break;

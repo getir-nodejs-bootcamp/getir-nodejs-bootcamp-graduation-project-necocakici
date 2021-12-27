@@ -1,6 +1,8 @@
 const Record = require("../models/Record");
 
-const getRecordsWithCondition = ({
+// @params startDate:String, endDate:String, minCount: Number, maxCount: Number
+// @return returns a pending Aggregate object
+const getRecordsWithCondition = async ({
   startDate,
   endDate,
   minCount,
@@ -37,9 +39,3 @@ const getRecordsWithCondition = ({
 module.exports = {
   getRecordsWithCondition,
 };
-
-/*{
-        createdAt: { $gte: new Date(startDate), $lte: new Date(endDate) },
-  }*/
-
-// { counts: { $elemMatch: { $gt: 110, $lt: 125 } } } PERF
